@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;
+}
+
+.carousel-item {
+  width: 800px;
+}
+
+form {
+  margin-top: 200px;
+  width: 300px;
+
+}
+
+.block-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mb-3 {
+  padding-left: 20px;
+}

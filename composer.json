@@ -1,0 +1,25 @@
+{
+    "name": "sk/php_authentication",
+    "type": "project",
+    "license": "BSD",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "silverstripe/postgresql": "2.x-dev" 
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/vendor-plugin": true
+        }
+    }
+}

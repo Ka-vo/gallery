@@ -1,0 +1,55 @@
+<?php
+
+namespace app\core;
+
+define('CONTROLLER_NAMESPACE', 'app\\controllers\\');
+
+use app\controllers;
+
+class Route
+{
+  public static function start()
+  {
+    $controllerClassName = 'home';
+    $actionName = 'index';
+    $payload = [];
+
+    $route = explode('/', $_SERVER['REQUEST_URI']);
+
+    if (!empty($route[1])) {
+      $controllerClassName = strtolower($route[1]);
+    }
+
+    if (!empty($route[2])) {
+      $actionName = strtolower($route[2]);
+    }
+
+    if (!empty($route[3])) {
+      $payload = array_splice($route, 3);
+    }
+
+    $controllerName = CONTROLLER_NAMESPACE . $controllerClassName;
+    $controllerFile = $controllerClassName . '.php';
+    $controllerPath = CONTROLLERS . $controllerFile;
+
+    if (file_exists($controllerPath)) {
+      include_once  $controllerPath;
+    } else {
+      self::error();
+    }
+
+    $controller = new $controllerName;
+    if (method_exists($controller, $actionName)) {
+      $controller->$actionName($payload);
+    } else {
+      self::error();
+    }
+  }
+
+  public static function error()
+  {
+    header('HTTP/1.1 404 NOT FOUND');
+    header('STATUS 404 NOT FOUND');
+    header('location:/error');
+  }
+}
