@@ -10,9 +10,6 @@
 </head>
 
 <body>
-  <?php require 'header.php' ?>
-  <!-- Форма авторизации -->
-
   <div class="d-flex container w-100 mt-5 justify-content-center" style="margin-bottom: 220px">
     <form action="vendor/signin.php" method="post">
       <label class="form-label">Логин</label>
@@ -23,7 +20,7 @@
 
       <button class="btn btn-primary mt-1 w-100" type="submit">Войти</button>
       <p>
-        У вас нет аккаунта? - <a href="./home.phtml">зарегистрируйтесь</a>!
+        У вас нет аккаунта? - <a href="./home">зарегистрируйтесь</a>!
       </p>
       <?php
       if ($_SESSION['message']) {

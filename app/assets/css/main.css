@@ -24,3 +24,11 @@ form {
 .mb-3 {
   padding-left: 20px;
 }
+
+#carouselExampleControls {
+  margin-top: 30px;
+}
+
+.mb-5 {
+  padding-top: 0;
+}

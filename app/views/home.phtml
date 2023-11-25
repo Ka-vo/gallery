@@ -11,38 +11,41 @@
 
 <body>
 
-
   <!-- Форма регистрации -->
-  <div class="d-flex container mb-5 w-100 mt-5 justify-content-center">
+  <div class="d-flex container w-100 mt-5 justify-content-center" style="margin-bottom: 220px">
     <form action="" method="post" enctype="multipart/form-data">
-      <label class="form-label">Имя</label>
-      <input type="text" class="form-control" name="name" placeholder="Введите имя">
-      <label class="form-label mt-1">Фамилия</label>
-      <input type="text" class="form-control" name="surname" placeholder="Введите фамилию">
       <label class="form-label mt-1">Логин</label>
       <input type="text" class="form-control" name="login" placeholder="Введите свой логин">
       <label class="form-label mt-1">Почта</label>
       <input type="email" class="form-control" name="email" placeholder="Введите адрес своей почты">
-      <label class="form-label mt-1">Изображение профиля</label>
-      <input type="file" class="form-control" name="avatar">
       <label class="form-label mt-1">Пароль</label>
       <input type="password" class="form-control" name="password" placeholder="Введите пароль">
       <label class="form-label mt-1">Подтверждение пароля</label>
       <input type="password" class="form-control" name="password_confirm" placeholder="Подтвердите пароль">
       <button class="btn btn-primary mt-1 w-100" type="submit">Зарегистрироваться</button>
       <p>
-        У вас уже есть аккаунт? - <a href="./login.phtml">авторизируйтесь</a>!
+        У вас уже есть аккаунт? - <a href="./login">авторизируйтесь</a>!
       </p>
+      <?php foreach ($payload as $row) {
+        if (!empty($row['login'])) {
+          echo 'ngf';
+      ?>
+          <h2>Такой логин уже существует</h2>
       <?php
-      if ($_SESSION['message']) {
-        echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
+        } else {
+          //header('location:/login');
+          echo 'ghjk';
+        }
+        //echo 'sfdhhg';
       }
-      unset($_SESSION['message']);
+      //echo '<tr><td>' . $row['login'] . '</td><td>';
+
+      //var_dump($payload);
       ?>
     </form>
+
   </div>
 
-  <?php require 'footer.php' ?>
 
 </body>
 
